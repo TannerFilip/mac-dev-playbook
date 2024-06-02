@@ -12,13 +12,13 @@
       tags: ['always']
 
   roles:
-    - role: staticdev.pyenv
-      pyenv_env: "system"
-      pyenv_global:
-        - 3.12
-      pyenv_enable_autocompletion: true
-      pyenv_python_versions:
-        - 3.12
+    # - role: staticdev.pyenv
+    #   pyenv_env: "system"
+    #   pyenv_global:
+    #     - 3.12
+    #   pyenv_enable_autocompletion: true
+    #   pyenv_python_versions:
+    #     - 3.12
     - role: elliotweiser.osx-command-line-tools
     - role: geerlingguy.mac.homebrew
       tags: ['homebrew']

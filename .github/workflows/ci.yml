@@ -36,7 +36,7 @@ jobs:
     strategy:
       matrix:
         os:
-          - macos-12
+          - macos-latest
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
@@ -59,6 +59,7 @@ jobs:
         run: |
           cp tests/ansible.cfg ./ansible.cfg
           cp tests/inventory ./inventory
+          cp tests/config.yml ./config.yml
           ansible-galaxy install -r requirements.yml
 
       - name: Test the playbook's syntax.
