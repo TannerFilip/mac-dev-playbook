@@ -1,0 +1,77 @@
+---
+downloads: ~/.ansible-downloads/
+tools_directory: ~/Tools/
+chainsaw_version: 2.9.0
+bspy_version: 0.0.5
+
+# Set to 'true' to configure the Dock via dockutil.
+configure_dock: true
+dockitems_remove:
+  - Safari
+  - Mail
+  - FaceTime
+  - Messages
+  - Maps
+  - Photos
+  - Music
+  - Podcasts
+  - TV
+  - News
+  - 'App Store'
+  - Freeform
+
+dockitems_persist:
+  - name: "Slack"
+    path: "/Applications/Slack.app/"
+    pos: 3,
+  - name: "Google Chrome"
+    path: "/Applications/Google Chrome.app/"
+    pos: 4
+
+
+homebrew_installed_packages:
+  - pyenv
+  - ssdeep
+  - sha2
+  - git
+  - sqlite
+  - nmap
+  - openssl
+  - vim
+  - wget
+  - zsh-autosuggestions
+  - zsh-syntax-highlighting
+  
+homebrew_taps: []
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - visual-studio-code
+  - iterm2
+  - db-browser-for-sqlite
+  - utm 
+
+osx_script: "~/.osx --no-restart"
+
+# Install packages from other package managers.
+# Note: You are responsible for making sure the required package managers are
+# installed, eg. through homebrew.
+composer_packages: []
+# - name: drush
+#   state: present # present/absent, default: present
+#   version: "^8.1" # default: N/A
+gem_packages: []
+# - name: bundler
+#   state: present # present/absent/latest, default: present
+#   version: "~> 1.15.1" # default: N/A
+npm_packages: []
+# - name: webpack
+#   state: present # present/absent/latest, default: present
+#   version: "^2.6" # default: N/A
+pip_packages: []
+# - name: mkdocs
+#   state: present # present/absent/latest, default: present
+#   version: "0.16.3" # default: N/A
+
+# Glob pattern to ansible task files to run after all other tasks are finished.
+post_provision_tasks: []
