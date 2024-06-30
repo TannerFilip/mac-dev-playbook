@@ -4,10 +4,10 @@
     path: "{{ item }}"
     state: directory
     mode: '760'
-    loop:
-      - "{{ tools_directory }}"
-      - "{{ tools_directory }}/chainsaw2"
-      - "{{ tools_directory }}/bspy"
+  loop:
+    - "{{ tools_directory }}"
+    - "{{ tools_directory }}/chainsaw2"
+    - "{{ tools_directory }}/bspy"
 - name: "Install Homebrew"
   ansible.builtin.shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   environment:
@@ -30,6 +30,7 @@
       - homebrew/cask/iterm2
       - homebrew/cask/db-browser-for-sqlite
       - homebrew/cask/utm
+      - homebrew/cask/vmware-fusion
     state: present
 - name: "Clone bspy"
   ansible.builtin.git:
