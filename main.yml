@@ -20,8 +20,6 @@
     #   pyenv_python_versions:
     #     - 3.12
     - role: elliotweiser.osx-command-line-tools
-    - role: geerlingguy.mac.homebrew
-      tags: ['homebrew']
     - role: geerlingguy.mac.dock
       when: configure_dock
       tags: ['dock']

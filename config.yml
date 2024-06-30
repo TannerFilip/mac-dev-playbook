@@ -1,5 +1,4 @@
 ---
-downloads: ~/.ansible-downloads/
 tools_directory: ~/Tools/
 chainsaw_version: 2.9.0
 bspy_version: 0.0.5

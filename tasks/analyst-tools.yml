@@ -1,4 +1,27 @@
 ---
+- name: "Install Homebrew"
+  ansible.builtin.shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  environment:
+    NONINTERACTIVE: "1"
+- name: "Install Homebrew packages"
+  community.general.homebrew:
+    name:
+      - pyenv
+      - ssdeep
+      - sha2
+      - git
+      - sqlite
+      - nmap
+      - openssl
+      - vim
+      - wget
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+      - homebrew/cask/visual-studio-code
+      - homebrew/cask/iterm2
+      - homebrew/cask/db-browser-for-sqlite
+      - homebrew/cask/utm
+    state: present
 - name: "Clone bspy"
   git:
     repo: 'https://github.com/0xFFaraday/bspy.git'
