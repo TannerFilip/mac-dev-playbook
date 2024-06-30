@@ -19,6 +19,8 @@
     #   pyenv_enable_autocompletion: true
     #   pyenv_python_versions:
     #     - 3.12
+    - role: geerlingguy.mac.homebrew
+      tags: ['homebrew']
     - role: elliotweiser.osx-command-line-tools
     - role: geerlingguy.mac.dock
       when: configure_dock

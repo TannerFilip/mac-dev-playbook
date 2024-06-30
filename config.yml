@@ -1,5 +1,5 @@
 ---
-tools_directory: ~/Tools/
+tools_directory: ~/Tools
 chainsaw_version: 2.9.0
 bspy_version: 0.0.5
 
@@ -22,7 +22,7 @@ dockitems_remove:
 dockitems_persist:
   - name: "Slack"
     path: "/Applications/Slack.app/"
-    pos: 3,
+    pos: 3
   - name: "Google Chrome"
     path: "/Applications/Google Chrome.app/"
     pos: 4

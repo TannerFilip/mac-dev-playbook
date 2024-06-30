@@ -1,4 +1,13 @@
 ---
+- name: "Create Tools folders"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: '760'
+    loop:
+      - "{{ tools_directory }}"
+      - "{{ tools_directory }}/chainsaw2"
+      - "{{ tools_directory }}/bspy"
 - name: "Install Homebrew"
   ansible.builtin.shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   environment:
@@ -23,20 +32,22 @@
       - homebrew/cask/utm
     state: present
 - name: "Clone bspy"
-  git:
+  ansible.builtin.git:
     repo: 'https://github.com/0xFFaraday/bspy.git'
     dest: "{{ tools_directory }}/bspy"
     version: "{{ bspy_version }}"
-    environment:
-      GIT_TERMINAL_PROMPT: 0
 - name: "Install bspy requirements"
-  command:
+  ansible.builtin.command:
     cmd: "pip install -r {{ tools_directory }}/bspy/requirements.txt"
 - name: "Download and extract Chainsaw 2.x"
-  unarchive:
+  ansible.builtin.unarchive:
     src: https://github.com/WithSecureLabs/chainsaw/releases/download/v{{ chainsaw_version }}/chainsaw_x86_64-apple-darwin.zip
     dest: "{{ tools_directory }}/chainsaw2"
     remote_src: true
 - name: "Disable quarantine bit on Chainsaw executable"
-  command:
+  ansible.builtin.command:
     cmd: xattr -dr com.apple.quarantine {{ tools_directory }}/chainsaw2/chainsaw
+- name: "Clone Chainsaw hunting rules"
+  ansible.builtin.git:
+    repo: 'https://github.com/import-pandas-as-numpy/chainsaw-rules'
+    dest: "{{ tools_directory }}/chainsaw2/chainsaw-rules"
