@@ -52,3 +52,10 @@
   ansible.builtin.git:
     repo: 'https://github.com/import-pandas-as-numpy/chainsaw-rules'
     dest: "{{ tools_directory }}/chainsaw2/chainsaw-rules"
+- name: "Configure PATH envvar"
+  ansible.builtin.blockinfile:
+    path: '{{ ansible_env.HOME }}/.zshrc'
+    create: true
+    state: present
+    block: |
+      export PATH=$PATH:{{ tools_directory }}/chainsaw2
